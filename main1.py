@@ -44,9 +44,6 @@ def top_headlines():
             st.write("Published at : ", article["publishedAt"])
             st.write(article["url"])
             st.write("\n\n")
-     
-        df = pd.DataFrame(news['articles'])
-        st.dataframe(df)
        
     else:
         st.write("Sorry, No results found")
