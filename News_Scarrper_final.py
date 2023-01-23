@@ -3,7 +3,7 @@ from newsapi import NewsApiClient
 import json
 
 # Create an instance of the NewsApiClient class
-newsapi = NewsApiClient(api_key='YOUR_API_KEY')
+newsapi = NewsApiClient(api_key='b8544a4119e541b4b4b22c575ad42744')
 
 def top_headlines():
     # Get the country and category from the user
