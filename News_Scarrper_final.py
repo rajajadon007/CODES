@@ -1,6 +1,9 @@
 import streamlit as st
 from newsapi import NewsApiClient
 import json
+import requests
+from pandas.io.json import json_normalize
+
 
 # Create an instance of the NewsApiClient class
 newsapi = NewsApiClient(api_key='d5f016a9f9be4a6d817211ca9833172b')
@@ -25,6 +28,7 @@ def top_headlines():
             country=country,
             from_param=start_date,
             to=end_date)
+        
     if news["status"] == "ok":
         st.write("Results Found : ", news["totalResults"])
         all_articles = news["articles"]
@@ -38,5 +42,5 @@ def top_headlines():
         st.write("Sorry, No results found")
 
 if __name__ == "__main__":
-    st.title("Top Headlines")
+  st.title("Top Headlines")
    
