@@ -4,7 +4,7 @@ import requests
 from newsapi import NewsApiClient
 from pandas.io.json import json_normalize
 # Create an instance of the NewsApiClient class
-newsapi = NewsApiClient(api_key='b8544a4119e541b4b4b22c575ad42744')
+newsapi = NewsApiClient(api_key='d5f016a9f9be4a6d817211ca9833172b')
 
 def top_headlines():
     # Get the country and category from the user
