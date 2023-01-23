@@ -42,5 +42,5 @@ def top_headlines():
         st.write("Sorry, No results found")
 
 if __name__ == "__main__":
-  st.title("Top Headlines")
+ st.title("Top Headlines")
    
