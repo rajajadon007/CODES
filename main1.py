@@ -35,6 +35,13 @@ def top_headlines():
         
     if news["status"] == "ok":
         st.write("Results Found : ", news["totalResults"])
+        all_articles = news["articles"] 
+        for article in all_articles:
+            st.write("**" + article["title"] + "**")
+            st.write("Source : ", article["source"]["name"])
+            st.write("Published at : ", article["publishedAt"])
+            st.write(article["url"])
+            st.write("\n\n")
      
         df = pd.DataFrame(news['articles'])
         st.dataframe(df)
