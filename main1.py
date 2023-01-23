@@ -4,6 +4,7 @@ import json
 import requests
 from pandas.io.json import json_normalize
 from datetime import datetime , timedelta
+import pandas as pd
 
 
 # Create an instance of the NewsApiClient class
