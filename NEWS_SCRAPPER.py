@@ -1,4 +1,6 @@
 import streamlit as st
+import json
+import requests
 from newsapi import NewsApiClient
 
 # Create an instance of the NewsApiClient class
