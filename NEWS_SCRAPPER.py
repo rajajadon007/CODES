@@ -13,7 +13,7 @@ def top_headlines():
 
     # Get the top headlines for the specified country and category
     top_headlines = newsapi.get_top_headlines(
-        category=category, language='en', country=country,page=5)
+        category=category, language='en', country=country,page=2)
     top_headlines = json_normalize(top_headlines['articles'])
     newdf = top_headlines[["title", "url"]]
     dic = newdf.set_index('title')['url'].to_dict()
