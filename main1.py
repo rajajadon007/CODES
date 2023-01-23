@@ -43,4 +43,4 @@ def top_headlines():
 
 if __name__ == "__main__":
  st.title("Top Headlines")
-   
+   top_headlines()
