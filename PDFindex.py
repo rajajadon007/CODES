@@ -13,6 +13,6 @@ with pdfplumber.open('SOP-GBS-0053-TEN-FIN-AR-JEE-Accruals booking-TEN.pdf') as 
 df = pd.DataFrame({'text':text.split("\n")})
 st.dataframe(df,width=800)
 df_cols = df[["text":"CONTENT"]]
-df_json = df_cols.to_json(orient='records')
+df_json = df_cols.to_json(orient='index')
 st.write(df_json)
 
