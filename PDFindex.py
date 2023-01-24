@@ -9,6 +9,6 @@ with pdfplumber.open('SOP-GBS-0053-TEN-FIN-AR-JEE-Accruals booking-TEN.pdf') as 
         if table:
             table_list.append(table)
    
-    final_df = pd.concat(table_list, ignore_index=True)
+    final_df = pd.concat(table_list, ignore_index=True,join='outer')
    
     st.dataframe(final_df)
