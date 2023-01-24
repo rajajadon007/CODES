@@ -15,7 +15,7 @@ df.to_csv('SOP-GBS-0053-TEN-FIN-AR-JEE-Accruals booking-TEN.csv', index=False)
 st.write("Here is the extracted text from the pdf:")
 st.dataframe(df,width=800)
 st.markdown("You can download the csv file by clicking the following button:")
-download_button = st.button('SOP-GBS-0053-TEN-FIN-AR-JEE-Accruals booking-TEN.csv')
+download_button = st.download('SOP-GBS-0053-TEN-FIN-AR-JEE-Accruals booking-TEN.csv')
 if download_button:
     st.write("The extracted text is downloaded as csv file!")
     st.markdown("Please find the downloaded csv file.")
