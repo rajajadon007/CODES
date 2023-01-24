@@ -8,5 +8,4 @@ with open('SOP-GBS-0053-TEN-FIN-AR-JEE-Accruals booking-TEN.pdf', 'rb') as pdf_f
         text += pdf_reader.getPage(page).extractText()
  
     data = {'text': text}
-    with open('your_json_file.json', 'w') as json_file:
-        json.dump(data, json_file)
+    st.write(data)
