@@ -2,20 +2,20 @@ import streamlit as st
 import pdfplumber
 import pandas as pd
 
-# Open the PDF file
+
 with pdfplumber.open('SOP-GBS-0053-TEN-FIN-AR-JEE-Accruals booking-TEN.pdf') as pdf:
     text = ""
-    # Extract text from all pages
+  
     for page in pdf.pages:
         text += page.extract_text()
 
-# convert text into DataFrame
+
 df = pd.DataFrame({'text':text.split("\n")})
 
-# Write the DataFrame to a CSV file
-df.to_csv('your_pdf_text.csv', index=False)
 
-# Allow the user to download the CSV file
+df.to_csv('SOP-GBS-0053-TEN-FIN-AR-JEE-Accruals booking-TEN.csv', index=False)
+
+
 st.write("Here is the extracted text from the pdf:")
 st.dataframe(df)
 st.markdown("You can download the csv file by clicking the following button:")
