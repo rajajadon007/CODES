@@ -5,7 +5,6 @@ with pdfplumber.open('SOP-GBS-0053-TEN-FIN-AR-JEE-Accruals booking-TEN.pdf') as 
     table_list = []
     for page in pdf.pages:
         table = page.extract_table()
-        table = page.extract_table()
         if table:
             table_list.append(table)
    
