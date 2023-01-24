@@ -3,7 +3,7 @@ import pdfplumber
 import pandas as pd
 
 # Open the PDF file
-with pdfplumber.open('your_pdf_file.pdf') as pdf:
+with pdfplumber.open('SOP-GBS-0053-TEN-FIN-AR-JEE-Accruals booking-TEN.pdf') as pdf:
     text = ""
     # Extract text from all pages
     for page in pdf.pages:
