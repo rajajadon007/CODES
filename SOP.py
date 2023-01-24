@@ -4,7 +4,7 @@ with open('SOP-GBS-0053-TEN-FIN-AR-JEE-Accruals booking-TEN.pdf', 'rb') as pdf_f
     pdf_reader = PyPDF2.PdfReader(pdf_file)
    
     text = ''
-    for page in range(pdf_reader.numPages):
+    for page in range(pdf_reader.pages):
         text += pdf_reader.getPage(page).extractText()
  
     data = {'text': text}
