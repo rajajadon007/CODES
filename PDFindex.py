@@ -3,7 +3,7 @@ import pdfplumber
 import pandas as pd
 
 
-with pdfplumber.open('SOP-GBS-0053-TEN-FIN-AR-JEE-Accruals booking-TEN.pdf.pdf') as pdf:
+with pdfplumber.open('SOP-GBS-0053-TEN-FIN-AR-JEE-Accruals booking-TEN.pdf') as pdf:
     text = ""
     
     for page in pdf.pages:
