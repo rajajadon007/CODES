@@ -10,7 +10,7 @@ with pdfplumber.open('SOP-GBS-0053-TEN-FIN-AR-JEE-Accruals booking-TEN.pdf') as 
         text += page.extract_text()
 
 
-df = pd.DataFrame({'text':text.split("\n")}))
+df = pd.DataFrame({'text':text.split("\n")})
 df.to_csv('SOP-GBS-0053-TEN-FIN-AR-JEE-Accruals booking-TEN.csv', index=False)
 st.write("Here is the extracted text from the pdf:")
 st.dataframe(df,width=800)
