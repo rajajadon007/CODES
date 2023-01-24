@@ -2,12 +2,12 @@ import streamlit as st
 import pdfplumber
 import pandas as pd
 with pdfplumber.open('SOP-GBS-0053-TEN-FIN-AR-JEE-Accruals booking-TEN.pdf') as pdf:
-    df_list = []
+    table_list = []
     for page in pdf.pages:
         table = page.extract_table()
-        if table:   
-          df = pd.DataFrame(table[1:], columns=table[0])
-          df_list.append(df)
+        table = page.extract_table()
+        if table:
+            table_list.append(table)
    
     final_df = pd.concat(df_list, ignore_index=True)
    
