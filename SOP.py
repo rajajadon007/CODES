@@ -1,12 +1,16 @@
 import json
-import PyPDF2
-with open('SOP-GBS-0053-TEN-FIN-AR-JEE-Accruals booking-TEN.pdf', 'rb') as pdf_file:
-    pdf_reader = PyPDF2.PdfReader(pdf_file)
+import pdfplumber
+
+
+with pdfplumber.open('SOP-GBS-0053-TEN-FIN-AR-JEE-Accruals booking-TEN.pdf') as pdf:
+    text = ""
+  
+    for page in pdf.pages:
+        text += page.extract_text()
    
-    text = ''
-    for page in range(pdf_reader.numPages):
-        text += pdf_reader.getPage(page).extractText()
- 
     data = {'text': text}
-    with open('SOP-GBS-0053-TEN-FIN-AR-JEE-Accruals booking-TEN.pdf.json', 'w') as json_file:
-       json.dump(data, json_file)
+    with open('SOP-GBS-0053-TEN-FIN-AR-JEE-Accruals booking-TEN.json', 'w') as json_file:
+        json.dump(data, json_file)
+        st.write(data)
+
+
