@@ -13,7 +13,10 @@ with pdfplumber.open('SOP-GBS-0053-TEN-FIN-AR-JEE-Accruals booking-TEN.pdf') as 
         text = page.extract_text()
         pages.append({'page_number': i+1, 'text': text})
     df = pd.DataFrame(pages)
-    df.set_index('page_number', inplace=True)
+    if 'page_number' not in df.columns:
+        df['page_number'] = df.index
+    if df.index.name != 'page_number':
+        df.set_index('page_number', inplace=True)
     st.write(df, height =1000,width=1000)
     search_term = st.text_input("Enter a search term:")
     if search_term:
@@ -24,6 +27,7 @@ with pdfplumber.open('SOP-GBS-0053-TEN-FIN-AR-JEE-Accruals booking-TEN.pdf') as 
         elements = []
         data = [['Page Number', 'Text']] + search_result[['page_number', 'text']].to_numpy().tolist()
         t = Table(data)
-        t.set
-
-
+        t.setStyle(TableStyle([
+            ('BACKGROUND', (0, 0), (-1, 0), colors.grey),
+            ('TEXTCOLOR', (0, 0), (-1, -1), colors.black),
+            ('ALIGN', (0, 0), (-1, -1), 'CENTER')
