@@ -11,8 +11,6 @@ with pdfplumber.open('SOP-GBS-0053-TEN-FIN-AR-JEE-Accruals booking-TEN.pdf') as 
 
     data = {'text': text}
     df = json_normalize(data)
-    st.write(df['name'])
-    st.write(df['age'])
-    st.write(df['address.city'])
+    st.write(df)
        
 
