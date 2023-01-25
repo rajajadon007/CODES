@@ -16,5 +16,5 @@ with pdfplumber.open('SOP-GBS-0053-TEN-FIN-AR-JEE-Accruals booking-TEN.pdf') as 
     if search_term:
         search_result = df[df['text'].str.contains(search_term, case=False)]
         st.write("Results for search term '{}':".format(search_term))
-       st.write(search_result.to_string(), unsafe_allow_html=True)
+        st.write(search_result.to_string(), unsafe_allow_html=True)
 
