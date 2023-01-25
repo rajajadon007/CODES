@@ -4,8 +4,6 @@ import pdfplumber
 from pandas.io.json import json_normalize
 import pandas as pd
 
-import streamlit as st
-
 with pdfplumber.open('SOP-GBS-0053-TEN-FIN-AR-JEE-Accruals booking-TEN.pdf') as pdf:
     pages = []
     for i, page in enumerate(pdf.pages):
@@ -14,14 +12,9 @@ with pdfplumber.open('SOP-GBS-0053-TEN-FIN-AR-JEE-Accruals booking-TEN.pdf') as 
     df = pd.DataFrame(pages)
     df.set_index('page_number', inplace=True)
     st.write(df, height =1000,width=1000)
-
-search_term = st.text_input("Enter a value from column 2:")
-if search_term:
-    result = df.query("column_2 == @search_term")
-    if result.empty:
-        st.warning("No match found.")
-    else:
-        st.write("The corresponding value in column 6 is:", result['column_6'].values[0])
-
-
+    search_term = st.text_input("Enter a search term:")
+    if search_term:
+        search_result = df[df['text'].str.contains(search_term, case=False)]
+        st.write("Results for search term '{}':".format(search_term))
+        st.write(search_result, height =1000,width=1000)
 
