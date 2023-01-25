@@ -11,7 +11,7 @@ with pdfplumber.open('SOP-GBS-0053-TEN-FIN-AR-JEE-Accruals booking-TEN.pdf') as 
 
     data = {'text': text}
     df = json_normalize(data)
-    df.set_index(inplace=True)
+    df.set_index('data',inplace=True)
     st.write(df, height =1000,width=1000)
 
        
