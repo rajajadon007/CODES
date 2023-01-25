@@ -3,6 +3,9 @@ import json
 import pdfplumber
 from pandas.io.json import json_normalize
 import pandas as pd
+from reportlab.lib import colors
+from reportlab.lib.pagesizes import letter, landscape
+from reportlab.platypus import SimpleDocTemplate, Table, TableStyle
 
 with pdfplumber.open('SOP-GBS-0053-TEN-FIN-AR-JEE-Accruals booking-TEN.pdf') as pdf:
     pages = []
@@ -16,5 +19,11 @@ with pdfplumber.open('SOP-GBS-0053-TEN-FIN-AR-JEE-Accruals booking-TEN.pdf') as 
     if search_term:
         search_result = df[df['text'].str.contains(search_term, case=False)]
         st.write("Results for search term '{}':".format(search_term))
-        st.write(search_result.to_string(), unsafe_allow_html=True)
+        st.write(search_result, height =1000,width=1000)
+        doc = SimpleDocTemplate("search_results.pdf", pagesize=landscape(letter))
+        elements = []
+        data = [['Page Number', 'Text']] + search_result[['page_number', 'text']].to_numpy().tolist()
+        t = Table(data)
+        t.set
+
 
