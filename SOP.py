@@ -2,6 +2,7 @@ import streamlit as st
 import json
 import pdfplumber
 from pandas.io.json import json_normalize
+import pandas as pd
 
 with pdfplumber.open('SOP-GBS-0053-TEN-FIN-AR-JEE-Accruals booking-TEN.pdf') as pdf:
     pages = []
