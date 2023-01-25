@@ -11,6 +11,8 @@ with pdfplumber.open('SOP-GBS-0053-TEN-FIN-AR-JEE-Accruals booking-TEN.pdf') as 
 
     data = {'text': text}
     df = json_normalize(data)
-    st.write(df, width=1000)
+    st.write(df, height =1000,width=1000)
+    st.write(df.query("EventName == 'Periodic Event'")['EventNumber'].values[0])
+
        
 
