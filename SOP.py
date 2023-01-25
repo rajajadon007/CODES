@@ -23,10 +23,4 @@ with pdfplumber.open('SOP-GBS-0053-TEN-FIN-AR-JEE-Accruals booking-TEN.pdf') as 
         search_result = df[df['text'].str.contains(search_term, case=False)]
         st.write("Results for search term '{}':".format(search_term))
         st.write(search_result, height =1000,width=1000)
-        doc = SimpleDocTemplate("search_results.pdf", pagesize=landscape(letter))
-        elements = []
-        data = [['Page Number', 'Text']] + search_result[['page_number', 'text']].to_numpy().tolist()
-        t = Table(data)
-        t.setStyle(style)
-        elements.append(t)
-        doc.build(elements)
+       
