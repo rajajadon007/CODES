@@ -10,7 +10,6 @@ with pdfplumber.open('SOP-GBS-0053-TEN-FIN-AR-JEE-Accruals booking-TEN.pdf') as 
         text += page.extract_text()
 
     data = {'text': text}
-    with open('SOP-GBS-0053-TEN-FIN-AR-JEE-Accruals booking-TEN.json', 'w') as json_file: 
     df = json_normalize(data)
     st.write(df['name'])
     st.write(df['age'])
