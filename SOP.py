@@ -18,6 +18,6 @@ with pdfplumber.open('SOP-GBS-0053-TEN-FIN-AR-JEE-Accruals booking-TEN.pdf') as 
         st.write("Results for search term '{}':".format(search_term))
         st.write(search_result.to_string(), unsafe_allow_html=True)
         if st.button("Get Specific Result"):
-            specific_result = search_result[search_result['text'].str.contains(search_term, case=False)]
+            specific_result = df[search_result[search_result['text'].str.contains(search_term, case=False)]]
             st.write("Specific Result for search term '{}':".format(search_term))
-            st.write(specific_result.to_string(), unsafe_allow_html=True)
+            st.write(specific_result)
