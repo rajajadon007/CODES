@@ -1,3 +1,5 @@
+
+import tabula
 import streamlit as st
 import json
 
